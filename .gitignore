@@ -1,2 +1,13 @@
+# elm
 elm-stuff/
 repl-term-*
+
+# node
+node_modules/
+npm-debug.log
+.tern-port
+
+dist/
+
+# OS
+.DS_Store
