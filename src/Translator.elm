@@ -1,10 +1,8 @@
 module Translator (..) where
 
-
 import Translator.Types exposing (..)
 import Dict
 import String
-
 import Translator.Fraktur
 import Translator.Script
 
@@ -19,7 +17,8 @@ charSets =
 translate : CharSetId -> String -> String
 translate charSetId text =
   let
-    charSet = findCharSet charSetId
+    charSet =
+      findCharSet charSetId
   in
     String.map (translateChar charSet) text
 
