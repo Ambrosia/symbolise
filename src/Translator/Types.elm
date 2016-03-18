@@ -18,3 +18,16 @@ type CharSetId
 
 type alias CharDict =
   Dict.Dict Char Char
+
+
+stringToCharSetId : String -> Maybe CharSetId
+stringToCharSetId string =
+  case string of
+    "Fraktur" ->
+      Just Fraktur
+
+    "Script" ->
+      Just Script
+
+    _ ->
+      Nothing
