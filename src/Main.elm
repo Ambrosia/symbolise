@@ -80,11 +80,7 @@ view address model =
 
 charSetOption : CharSet -> Html
 charSetOption charSet =
-  let
-    charSetName =
-      Translator.translate charSet.id charSet.name
-  in
-    option [ value (toString charSet.id) ] [ text charSetName ]
+  option [ value (toString charSet.id) ] [ text (charSetOptionText charSet) ]
 
 
 onChange : (String -> Signal.Message) -> Attribute
@@ -100,6 +96,11 @@ onCharSetChange address =
 onTextInput : Signal.Address Action -> Attribute
 onTextInput address =
   on "input" targetValue (\string -> Signal.message address (ChangeText string))
+
+
+charSetOptionText : CharSet -> String
+charSetOptionText charSet =
+  (Translator.translate charSet.id charSet.name) ++ " (" ++ charSet.name ++ ")"
 
 
 
