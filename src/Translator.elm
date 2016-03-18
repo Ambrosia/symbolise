@@ -6,12 +6,14 @@ import String
 import Maybe exposing (withDefault)
 import Translator.Fraktur
 import Translator.Script
+import Translator.DoubleWidth
 
 
 charSets : List CharSet
 charSets =
   [ Translator.Fraktur.charSet
   , Translator.Script.charSet
+  , Translator.DoubleWidth.charSet
   ]
 
 
@@ -64,3 +66,6 @@ findCharSet charSetId =
 
     Script ->
       Translator.Script.charSet
+
+    DoubleWidth ->
+      Translator.DoubleWidth.charSet

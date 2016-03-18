@@ -14,6 +14,7 @@ type alias CharSet =
 type CharSetId
   = Fraktur
   | Script
+  | DoubleWidth
 
 
 type alias CharDict =
@@ -28,6 +29,9 @@ stringToCharSetId string =
 
     "Script" ->
       Just Script
+
+    "DoubleWidth" ->
+      Just DoubleWidth
 
     _ ->
       Nothing
