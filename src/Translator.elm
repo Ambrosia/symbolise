@@ -7,6 +7,7 @@ import Maybe exposing (withDefault)
 import Translator.Fraktur
 import Translator.Script
 import Translator.DoubleWidth
+import Translator.DoubleStruck
 
 
 charSets : List CharSet
@@ -14,6 +15,7 @@ charSets =
   [ Translator.Fraktur.charSet
   , Translator.Script.charSet
   , Translator.DoubleWidth.charSet
+  , Translator.DoubleStruck.charSet
   ]
 
 
@@ -69,3 +71,6 @@ findCharSet charSetId =
 
     DoubleWidth ->
       Translator.DoubleWidth.charSet
+
+    DoubleStruck ->
+      Translator.DoubleStruck.charSet
