@@ -3,6 +3,7 @@ module Translator (..) where
 import Translator.Types exposing (..)
 import Dict
 import String
+import Maybe exposing (withDefault)
 import Translator.Fraktur
 import Translator.Script
 
@@ -25,12 +26,34 @@ translate charSetId text =
 
 translateChar : CharSet -> Char -> Char
 translateChar charSet char =
-  case Dict.get char charSet.dict of
-    Just char' ->
-      char'
+  let
+    charSet' =
+      withDefault charSet (charSetForChar charSet char)
+  in
+    withDefault char (Dict.get char charSet'.dict)
+
+
+
+{-
+`char` renamed to `character` in the following function because of a bug in
+compilation. It produced "Uncaught ReferenceError: char is not defined".
+I should report this some time!
+-}
+
+
+charSetForChar : CharSet -> Char -> Maybe CharSet
+charSetForChar charSet character =
+  case Dict.get character charSet.dict of
+    Just _ ->
+      Just charSet
 
     Nothing ->
-      char
+      case charSet.fallback of
+        Just fallbackCharSetId ->
+          charSetForChar (findCharSet fallbackCharSetId) character
+
+        Nothing ->
+          Nothing
 
 
 findCharSet : CharSetId -> CharSet
