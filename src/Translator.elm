@@ -8,6 +8,7 @@ import Translator.Fraktur
 import Translator.Script
 import Translator.DoubleWidth
 import Translator.DoubleStruck
+import Translator.Circled
 
 
 charSets : List CharSet
@@ -16,6 +17,7 @@ charSets =
   , Translator.Script.charSet
   , Translator.DoubleWidth.charSet
   , Translator.DoubleStruck.charSet
+  , Translator.Circled.charSet
   ]
 
 
@@ -74,3 +76,6 @@ findCharSet charSetId =
 
     DoubleStruck ->
       Translator.DoubleStruck.charSet
+
+    Circled ->
+      Translator.Circled.charSet

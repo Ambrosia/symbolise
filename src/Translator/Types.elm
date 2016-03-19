@@ -16,6 +16,7 @@ type CharSetId
   | Script
   | DoubleWidth
   | DoubleStruck
+  | Circled
 
 
 type alias CharDict =
@@ -36,6 +37,9 @@ stringToCharSetId string =
 
     "DoubleStruck" ->
       Just DoubleStruck
+
+    "Circled" ->
+      Just Circled
 
     _ ->
       Nothing
