@@ -64,7 +64,8 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div
     []
-    [ input
+    [ h1 [] [ text "Symbolise" ]
+    , input
         [ type' "text"
         , placeholder "Type something here"
         , onTextInput address
