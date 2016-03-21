@@ -76,6 +76,14 @@ view address model =
         [ onCharSetChange address ]
         (List.map charSetOption Translator.charSets)
     , p [] [ text (Translator.translate model.currentCharSetId model.text) ]
+    , footer
+        []
+        [ a
+            [ href "https://github.com/Ambrosia/symbolise"
+            , target "_blank"
+            ]
+            [ text "source" ]
+        ]
     ]
 
 
