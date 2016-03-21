@@ -1,6 +1,7 @@
 # elm
 elm-stuff/
 repl-term-*
+elm-package.json
 
 # node
 node_modules/
