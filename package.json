@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-      "build": "webpack",
+      "build": "webpack --optimize-minimize",
       "watch": "webpack --watch",
       "dev": "webpack-dev-server --port 3000"
   },
